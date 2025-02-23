@@ -1,6 +1,6 @@
 # Neodarcula   
 
-Intellij's Dark Theme replica for Neovim.
+Intellij's default dark theme replica for Neovim.
 
 ## Examples
 
@@ -11,6 +11,7 @@ Intellij's Dark Theme replica for Neovim.
 - [Rust](#rust)
 - [Odin](#odin)
 - [Zig](#zig)
+- [Python](#python)
 - [C3](#c3)
 
 ### Jai
@@ -33,6 +34,9 @@ Intellij's Dark Theme replica for Neovim.
 
 ### Zig
 <img src="https://github.com/user-attachments/assets/4f391f9f-5356-4571-be6c-d5dc052eeae2" alt="Zig Image" width="600"/>
+
+### Python
+<img src="https://github.com/user-attachments/assets/029a3d20-3249-46e8-8c66-914b46459012" alt="Python Image" width="600"/>
 
 ### C3
 I couldn't get highlighting to work on C3. If someone knows how to configure neovim for C3, please let me know.
@@ -66,4 +70,9 @@ return {
     },
 }
 ```
+## Requirements
+This color scheme uses LSP Semantic tokens and Treesitter information, so it works better when these are working.        
 
+## Alternatives
+- [xiantang/darcula-dark.nvim](https://github.com/xiantang/darcula-dark.nvim)
+- [doums/darcula](https://github.com/doums/darcula)
