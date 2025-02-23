@@ -37,6 +37,8 @@ Intellij's Dark Theme replica for Neovim.
 ### C3
 I couldn't get highlighting to work on C3. If someone knows how to configure neovim for C3, please let me know.
 
+---
+
 ## 📦 Installation
 
 ```
