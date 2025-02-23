@@ -71,7 +71,7 @@ return {
 }
 ```
 ## Requirements
-This color scheme uses LSP Semantic tokens and Treesitter information, so it works better when these are working.        
+This color scheme uses LSP Semantic tokens and Treesitter information, so it works better when these are enabled.        
 
 ## Alternatives
 - [xiantang/darcula-dark.nvim](https://github.com/xiantang/darcula-dark.nvim)
