@@ -11,7 +11,6 @@ Intellij's default dark theme replica for Neovim.
 - [Rust](#rust)
 - [Odin](#odin)
 - [Zig](#zig)
-- [Python](#python)
 - [C3](#c3)
 
 ### Jai
@@ -34,9 +33,6 @@ Intellij's default dark theme replica for Neovim.
 
 ### Zig
 <img src="https://github.com/user-attachments/assets/4f391f9f-5356-4571-be6c-d5dc052eeae2" alt="Zig Image" width="600"/>
-
-### Python
-<img src="https://github.com/user-attachments/assets/029a3d20-3249-46e8-8c66-914b46459012" alt="Python Image" width="600"/>
 
 ### C3
 I couldn't get highlighting to work on C3. If someone knows how to configure neovim for C3, please let me know.
