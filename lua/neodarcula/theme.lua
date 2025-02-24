@@ -21,6 +21,10 @@ neodarcula.colors = {
 	gray = "#606366", -- UI elements like LineNr
 	annotation = "#BBB529", -- Annotations (e.g., @Component)
 	variable = "#9876AA", -- Class/instance/static variables (pinkish-purple)
+	search_bg = "#22535E", -- Other matches
+	inc_search_bg = "#00006B", -- During active search
+	cur_search_bg = "#00006B", -- Current match after search
+	flash_label_bg = "#FF007F", -- Flash.nvim label background
 }
 
 function neodarcula.apply()
@@ -39,6 +43,12 @@ function neodarcula.apply()
 	vim.api.nvim_set_hl(0, "VertSplit", { fg = colors.gray, bg = colors.bg })
 	vim.api.nvim_set_hl(0, "Pmenu", { fg = colors.fg, bg = colors.current_line })
 	vim.api.nvim_set_hl(0, "PmenuSel", { bg = colors.selection })
+	vim.api.nvim_set_hl(0, "Search", { bg = colors.search_bg, fg = colors.fg, bold = false })
+	vim.api.nvim_set_hl(0, "IncSearch", { bg = colors.inc_search_bg, fg = colors.fg, bold = true })
+	vim.api.nvim_set_hl(0, "CurSearch", { bg = colors.cur_search_bg, fg = colors.fg, bold = true })
+
+	-- Flash.nvim highlights
+	vim.api.nvim_set_hl(0, "FlashLabel", { fg = colors.flash_label_bg, bg = colors.bg, bold = true })
 
 	-- Syntax highlighting (fallback)
 	vim.api.nvim_set_hl(0, "Comment", { fg = colors.comment, italic = true })
