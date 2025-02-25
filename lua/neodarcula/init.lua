@@ -3,6 +3,7 @@ local neodarcula = {}
 
 neodarcula.colors = {
 	fg = "#A9B7C6", -- General text
+	bg_inactive = "#000000", -- Inactive window background
 	bg = "#1B1B1B",
 	selection = "#214283", -- Selection background (more blue)
 	current_line = "#323232", -- Current line highlight
@@ -45,34 +46,39 @@ function neodarcula.apply()
 	local colors = neodarcula.colors
 	local cfg = neodarcula.config
 
-	local bg = colors.bg
+	-- TODO workaround, ,see bellow
+	local normal_bg = colors.bg
 	if cfg.transparent then
 		---@diagnostic disable-next-line: cast-local-type
-		bg = nil
+		normal_bg = nil
 	end
 
 	-- Apply highlights
-	vim.api.nvim_set_hl(0, "Normal", {
-		fg = colors.fg,
-		bg = bg,
-	})
+	-- TODO somehow this doesn't work
+	-- local normal_bg = cfg.transparent and nil or colors.bg
+	vim.api.nvim_set_hl(0, "Normal", { fg = colors.fg, bg = normal_bg })
+
+	-- NormalNC (inactive windows) - black background
+	local normalnc_bg = cfg.transparent and nil or colors.bg_inactive
+	vim.api.nvim_set_hl(0, "NormalNC", { fg = colors.fg, bg = normalnc_bg })
+
 	vim.api.nvim_set_hl(0, "NormalFloat", {
 		fg = colors.fg,
-		bg = bg,
+		bg = normal_bg,
 	})
 	vim.api.nvim_set_hl(0, "Visual", { bg = colors.selection })
 	vim.api.nvim_set_hl(0, "CursorLine", { bg = colors.current_line })
 	vim.api.nvim_set_hl(0, "CursorColumn", { bg = colors.current_line })
 	vim.api.nvim_set_hl(0, "LineNr", {
 		fg = colors.gray,
-		bg = bg,
+		bg = normal_bg,
 	})
 	vim.api.nvim_set_hl(0, "CursorLineNr", { fg = colors.fg, bg = colors.current_line })
 	vim.api.nvim_set_hl(0, "StatusLine", { fg = colors.fg, bg = colors.current_line })
 	vim.api.nvim_set_hl(0, "StatusLineNC", { fg = colors.gray, bg = colors.current_line })
 	vim.api.nvim_set_hl(0, "VertSplit", {
 		fg = colors.gray,
-		bg = bg,
+		bg = normal_bg,
 	})
 	vim.api.nvim_set_hl(0, "Pmenu", { fg = colors.fg, bg = colors.current_line })
 	vim.api.nvim_set_hl(0, "PmenuSel", { bg = colors.selection })
@@ -143,7 +149,7 @@ function neodarcula.apply()
 	-- Flash.nvim
 	vim.api.nvim_set_hl(0, "FlashLabel", {
 		fg = colors.flash_label_bg,
-		bg = bg,
+		bg = normal_bg,
 		bold = true,
 	})
 
