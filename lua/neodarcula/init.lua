@@ -29,20 +29,51 @@ neodarcula.colors = {
 	eyeliner_fg = "#FFFFFF", -- eyeliner.nvim background
 }
 
+-- Default configuration
+local default_config = {
+	transparent = false,
+}
+
+neodarcula.config = default_config
+
+-- Function to setup configuration
+function neodarcula.setup(opts)
+	neodarcula.config = vim.tbl_extend("force", default_config, opts or {})
+end
+
 function neodarcula.apply()
 	local colors = neodarcula.colors
+	local cfg = neodarcula.config
+
+	local bg = colors.bg
+	if cfg.transparent then
+		---@diagnostic disable-next-line: cast-local-type
+		bg = nil
+	end
 
 	-- Apply highlights
-	vim.api.nvim_set_hl(0, "Normal", { fg = colors.fg, bg = colors.bg })
-	vim.api.nvim_set_hl(0, "NormalFloat", { fg = colors.fg, bg = colors.bg })
+	vim.api.nvim_set_hl(0, "Normal", {
+		fg = colors.fg,
+		bg = bg,
+	})
+	vim.api.nvim_set_hl(0, "NormalFloat", {
+		fg = colors.fg,
+		bg = bg,
+	})
 	vim.api.nvim_set_hl(0, "Visual", { bg = colors.selection })
 	vim.api.nvim_set_hl(0, "CursorLine", { bg = colors.current_line })
 	vim.api.nvim_set_hl(0, "CursorColumn", { bg = colors.current_line })
-	vim.api.nvim_set_hl(0, "LineNr", { fg = colors.gray, bg = colors.bg })
+	vim.api.nvim_set_hl(0, "LineNr", {
+		fg = colors.gray,
+		bg = bg,
+	})
 	vim.api.nvim_set_hl(0, "CursorLineNr", { fg = colors.fg, bg = colors.current_line })
 	vim.api.nvim_set_hl(0, "StatusLine", { fg = colors.fg, bg = colors.current_line })
 	vim.api.nvim_set_hl(0, "StatusLineNC", { fg = colors.gray, bg = colors.current_line })
-	vim.api.nvim_set_hl(0, "VertSplit", { fg = colors.gray, bg = colors.bg })
+	vim.api.nvim_set_hl(0, "VertSplit", {
+		fg = colors.gray,
+		bg = bg,
+	})
 	vim.api.nvim_set_hl(0, "Pmenu", { fg = colors.fg, bg = colors.current_line })
 	vim.api.nvim_set_hl(0, "PmenuSel", { bg = colors.selection })
 	vim.api.nvim_set_hl(0, "Search", { bg = colors.search_bg, fg = colors.fg, bold = false })
@@ -110,7 +141,11 @@ function neodarcula.apply()
 	vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = colors.selection })
 
 	-- Flash.nvim
-	vim.api.nvim_set_hl(0, "FlashLabel", { fg = colors.flash_label_bg, bg = colors.bg, bold = true })
+	vim.api.nvim_set_hl(0, "FlashLabel", {
+		fg = colors.flash_label_bg,
+		bg = bg,
+		bold = true,
+	})
 
 	-- eyeliner.nvim
 	vim.api.nvim_set_hl(
