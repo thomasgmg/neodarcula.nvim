@@ -25,6 +25,8 @@ neodarcula.colors = {
 	inc_search_bg = "#00006B", -- During active search
 	cur_search_bg = "#00006B", -- Current match after search
 	flash_label_bg = "#FF007F", -- Flash.nvim label background
+	eyeliner_bg = "#000000", -- eyeliner.nvim background
+	eyeliner_fg = "#FFFFFF", -- eyeliner.nvim background
 }
 
 function neodarcula.apply()
@@ -111,8 +113,12 @@ function neodarcula.apply()
 	vim.api.nvim_set_hl(0, "FlashLabel", { fg = colors.flash_label_bg, bg = colors.bg, bold = true })
 
 	-- eyeliner.nvim
-	vim.api.nvim_set_hl(0, "EyelinerPrimary", { fg = colors.fg, bold = true, underline = false })
-	vim.api.nvim_set_hl(0, "EyelinerSecondary", { fg = colors.fg, underline = false })
+	vim.api.nvim_set_hl(
+		0,
+		"EyelinerPrimary",
+		{ fg = colors.eyeliner_fg, bg = colors.eyeliner_bg, bold = true, underline = false }
+	)
+	vim.api.nvim_set_hl(0, "EyelinerSecondary", { fg = colors.eyeliner_fg, bg = colors.eyeliner_bg, underline = false })
 end
 
 return neodarcula
