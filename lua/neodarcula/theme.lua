@@ -47,9 +47,6 @@ function neodarcula.apply()
 	vim.api.nvim_set_hl(0, "IncSearch", { bg = colors.inc_search_bg, fg = colors.fg, bold = true })
 	vim.api.nvim_set_hl(0, "CurSearch", { bg = colors.cur_search_bg, fg = colors.fg, bold = true })
 
-	-- Flash.nvim highlights
-	vim.api.nvim_set_hl(0, "FlashLabel", { fg = colors.flash_label_bg, bg = colors.bg, bold = true })
-
 	-- Syntax highlighting (fallback)
 	vim.api.nvim_set_hl(0, "Comment", { fg = colors.comment, italic = true })
 	vim.api.nvim_set_hl(0, "String", { fg = colors.string })
@@ -109,6 +106,13 @@ function neodarcula.apply()
 	vim.api.nvim_set_hl(0, "TelescopePromptCounter", { fg = colors.fg })
 	vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = colors.bg })
 	vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = colors.selection })
+
+	-- Flash.nvim
+	vim.api.nvim_set_hl(0, "FlashLabel", { fg = colors.flash_label_bg, bg = colors.bg, bold = true })
+
+	-- eyeliner.nvim
+	vim.api.nvim_set_hl(0, "EyelinerPrimary", { fg = colors.fg, bold = true, underline = false })
+	vim.api.nvim_set_hl(0, "EyelinerSecondary", { fg = colors.fg, underline = false })
 end
 
 return neodarcula
