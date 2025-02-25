@@ -33,6 +33,7 @@ neodarcula.colors = {
 -- Default configuration
 local default_config = {
 	transparent = false,
+	dim = false,
 }
 
 neodarcula.config = default_config
@@ -59,7 +60,7 @@ function neodarcula.apply()
 	vim.api.nvim_set_hl(0, "Normal", { fg = colors.fg, bg = normal_bg })
 
 	-- NormalNC (inactive windows) - black background
-	local normalnc_bg = cfg.transparent and nil or colors.bg_inactive
+	local normalnc_bg = cfg.dim and colors.bg_inactive or nil
 	vim.api.nvim_set_hl(0, "NormalNC", { fg = colors.fg, bg = normalnc_bg })
 
 	vim.api.nvim_set_hl(0, "NormalFloat", {
