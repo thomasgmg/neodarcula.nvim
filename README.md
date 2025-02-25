@@ -76,7 +76,9 @@ Default Options
 
 ```
 {
+    -- removes the background color, making it transparent.
     transparent = false,
+    -- sets the background of inactive windows to black
     dim = false,            
 }
 ```
