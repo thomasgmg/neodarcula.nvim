@@ -1,0 +1,48 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for changelog generation
+
+      - name: Generate Changelog
+        id: changelog
+        uses: mikepenz/release-changelog-builder-action@v4
+        with:
+          configuration: |
+            {
+              "template": "## {{title}}\n\n{{body}}",
+              "categories": [
+                {"title": "✨ New Features", "labels": ["feature"]},
+                {"title": "🐛 Bug Fixes", "labels": ["bug", "fix"]},
+                {"title": "📝 Documentation", "labels": ["docs", "documentation"]},
+                {"title": "misc", "labels": []}
+              ],
+              "sort": "created-desc",
+              "unreleased": false,
+              "max_tags_to_fetch": 10
+            }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+
+      # Create the GitHub release
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: Release ${{ github.ref_name }}
+          body: ${{ steps.changelog.outputs.changelog }}
+          draft: false
+          prerelease: false
