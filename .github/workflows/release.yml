@@ -9,11 +9,10 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Fetch all history for changelog generation
+          fetch-depth: 0
 
       - name: Generate Changelog
         id: changelog
@@ -23,26 +22,18 @@ jobs:
             {
               "template": "## {{title}}\n\n{{body}}",
               "categories": [
-                {"title": "✨ New Features", "labels": ["feature"]},
-                {"title": "🐛 Bug Fixes", "labels": ["bug", "fix"]},
-                {"title": "📝 Documentation", "labels": ["docs", "documentation"]},
-                {"title": "misc", "labels": []}
-              ],
-              "sort": "created-desc",
-              "unreleased": false,
-              "max_tags_to_fetch": 10
+                {"title": "Changes", "labels": []}
+              ]
             }
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Create the GitHub release
       - name: Create Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.ref_name }}
-          release_name: Release ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
           body: ${{ steps.changelog.outputs.changelog }}
           draft: false
           prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}
