@@ -1,7 +1,7 @@
 -- Define the neodarcula colorscheme
-local neodarcula = {}
+local M = {}
 
-neodarcula.colors = {
+M.colors = {
 	fg = "#A9B7C6", -- General text
 	bg_inactive = "#000000", -- Inactive window background
 	bg = "#1B1B1B",
@@ -36,16 +36,24 @@ local default_config = {
 	dim = false,
 }
 
-neodarcula.config = default_config
+M.config = default_config
 
 -- Function to setup configuration
-function neodarcula.setup(opts)
-	neodarcula.config = vim.tbl_extend("force", default_config, opts or {})
+function M.setup(opts)
+	M.config = vim.tbl_extend("force", default_config, opts or {})
 end
 
-function neodarcula.apply()
-	local colors = neodarcula.colors
-	local cfg = neodarcula.config
+function M.load()
+	vim.cmd("highlight clear")
+
+	if vim.g.syntax_on then
+		vim.cmd("syntax reset")
+	end
+
+	vim.g.colors_name = "neodarcula"
+
+	local colors = M.colors
+	local cfg = M.config
 
 	-- TODO workaround, ,see bellow
 	local normal_bg = colors.bg
@@ -163,4 +171,4 @@ function neodarcula.apply()
 	vim.api.nvim_set_hl(0, "EyelinerSecondary", { fg = colors.eyeliner_fg, bg = colors.eyeliner_bg, underline = false })
 end
 
-return neodarcula
+return M
