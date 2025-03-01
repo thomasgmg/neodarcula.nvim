@@ -26,6 +26,7 @@ M.colors = {
 	inc_search_bg = "#00006B", -- During active search
 	cur_search_bg = "#00006B", -- Current match after search
 	flash_label_bg = "#FF007F", -- Flash.nvim label background
+	lsp_reference_text = "#424446", -- Selection background
 	eyeliner_bg = "#000000", -- eyeliner.nvim background
 	eyeliner_fg = "#FFFFFF", -- eyeliner.nvim background
 }
@@ -146,6 +147,8 @@ function M.load()
 	vim.api.nvim_set_hl(0, "@lsp.typemod.method.declaration", { fg = colors.func }) -- Method declarations
 	vim.api.nvim_set_hl(0, "@lsp.typemod.enum.constructor", { fg = colors.func }) -- Enum constructors (blue)
 	vim.api.nvim_set_hl(0, "@lsp.mod.constructor", { fg = colors.func }) -- General constructors (blue)
+
+	vim.api.nvim_set_hl(0, "LspReferenceText", { bg = colors.lsp_reference_text, underline = false }) -- Gray background for text references
 
 	-- Telescope integration
 	vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = colors.gray, bg = colors.bg })
