@@ -1,6 +1,6 @@
 # Neodarcula   
 
-A discrete color theme based on Intellij's default dark theme, with support for transparency, window dimming, LSP, treesitter and other plugins like [flash.nvim](https://github.com/folke/flash.nvim) and [eyeliner.nvim](https://github.com/jinh0/eyeliner.nvim).
+A discrete color theme based on Intellij's default dark theme, with support for transparency, window dimming, LSP, treesitter, telescope and other plugins like [flash.nvim](https://github.com/folke/flash.nvim) and [eyeliner.nvim](https://github.com/jinh0/eyeliner.nvim).
 
 ## Examples
 
