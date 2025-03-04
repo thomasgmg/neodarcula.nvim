@@ -29,6 +29,8 @@ M.colors = {
 	lsp_reference_text = "#424446", -- Selection background
 	eyeliner_bg = "#000000", -- eyeliner.nvim background
 	eyeliner_fg = "#FFFFFF", -- eyeliner.nvim background
+	float_border = "#CC7832",
+	title = "#CC7832",
 }
 
 -- Default configuration
@@ -150,13 +152,19 @@ function M.load()
 
 	vim.api.nvim_set_hl(0, "LspReferenceText", { bg = colors.lsp_reference_text, underline = false }) -- Gray background for text references
 
+	vim.api.nvim_set_hl(0, "FloatBorder", { fg = colors.float_border, bg = normal_bg })
+	vim.api.nvim_set_hl(0, "Title", { fg = colors.title, bg = normal_bg })
+
 	-- Telescope integration
-	vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = colors.gray, bg = colors.bg })
-	vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = colors.fg, bg = colors.current_line })
-	vim.api.nvim_set_hl(0, "TelescopePromptNormal", { fg = colors.fg, bg = colors.current_line })
+	vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "FloatBorder" })
+	vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = colors.title, bg = normal_bg })
+	vim.api.nvim_set_hl(0, "TelescopePromptNormal", { fg = colors.fg, bg = normal_bg })
 	vim.api.nvim_set_hl(0, "TelescopePromptCounter", { fg = colors.fg })
-	vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = colors.bg })
+	vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = normal_bg })
 	vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = colors.selection })
+
+	-- fzf-lua integration
+	-- faz-lua will inherit Title and other groups automatically
 
 	-- Flash.nvim
 	vim.api.nvim_set_hl(0, "FlashLabel", {
