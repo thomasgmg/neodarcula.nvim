@@ -36,8 +36,6 @@ A discrete color theme based on Intellij's default dark theme, with support for 
 
 ### C3 (tree-sitter only, no LSP)
 <img src="https://github.com/user-attachments/assets/c715473e-6ef5-4303-b80c-bd46fd4e0086" alt="C3 Image" width="600"/>
-![image](https://github.com/user-attachments/assets/c715473e-6ef5-4303-b80c-bd46fd4e0086)
-
 
 ---
 
