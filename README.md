@@ -34,8 +34,10 @@ A discrete color theme based on Intellij's default dark theme, with support for 
 ### Zig
 <img src="https://github.com/user-attachments/assets/4f391f9f-5356-4571-be6c-d5dc052eeae2" alt="Zig Image" width="600"/>
 
-### C3
-I couldn't get highlighting to work on C3. If someone knows how to configure neovim for C3, please let me know.
+### C3 (tree-sitter only, no LSP)
+<img src="https://github.com/user-attachments/assets/c715473e-6ef5-4303-b80c-bd46fd4e0086" alt="C3 Image" width="600"/>
+![image](https://github.com/user-attachments/assets/c715473e-6ef5-4303-b80c-bd46fd4e0086)
+
 
 ---
 
