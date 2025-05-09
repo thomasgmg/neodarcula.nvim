@@ -31,6 +31,7 @@ M.colors = {
 	eyeliner_fg = "#FFFFFF", -- eyeliner.nvim background
 	float_border = "#CC7832",
 	title = "#CC7832",
+	special = "#AD9A53", -- xml tags, tree-sitter
 }
 
 -- Default configuration
@@ -114,6 +115,7 @@ function M.load()
 	vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = colors.warning })
 	vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = colors.info })
 	vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = colors.hint })
+	vim.api.nvim_set_hl(0, "LspInlayHint", { fg = colors.hint })
 
 	-- Treesitter integration (fallback)
 	vim.api.nvim_set_hl(0, "@keyword", { fg = colors.keyword })
@@ -128,6 +130,7 @@ function M.load()
 	vim.api.nvim_set_hl(0, "@type", { fg = colors.type })
 	vim.api.nvim_set_hl(0, "@constant", { fg = colors.constant })
 	vim.api.nvim_set_hl(0, "@attribute", { fg = colors.annotation })
+	vim.api.nvim_set_hl(0, "Special", { fg = colors.special })
 
 	-- LSP Semantic Tokens
 	vim.api.nvim_set_hl(0, "@lsp.type.keyword", { fg = colors.keyword }) -- e.g., public, class, implements, enum
@@ -146,9 +149,15 @@ function M.load()
 	vim.api.nvim_set_hl(0, "@lsp.type.operator", { fg = colors.operator })
 	vim.api.nvim_set_hl(0, "@lsp.type.annotation", { fg = colors.annotation })
 	vim.api.nvim_set_hl(0, "@lsp.mod.annotation", { fg = colors.annotation })
+	vim.api.nvim_set_hl(0, "@lsp.mod.constructor", { fg = colors.func }) -- General constructors (blue)
 	vim.api.nvim_set_hl(0, "@lsp.typemod.method.declaration", { fg = colors.func }) -- Method declarations
 	vim.api.nvim_set_hl(0, "@lsp.typemod.enum.constructor", { fg = colors.func }) -- Enum constructors (blue)
-	vim.api.nvim_set_hl(0, "@lsp.mod.constructor", { fg = colors.func }) -- General constructors (blue)
+	vim.api.nvim_set_hl(0, "@lsp.typemod.type.struct", { fg = colors.func }) -- Structs (blue)
+	vim.api.nvim_set_hl(0, "@lsp.typemod.variable.defaultLibrary", { fg = colors.keyword }) -- Default library variables
+	vim.api.nvim_set_hl(0, "@lsp.typemod.variable.readonly", { fg = colors.variable }) -- Readonly variables (pinkish-purple)
+	vim.api.nvim_set_hl(0, "@lsp.typemod.string.format", { fg = colors.keyword }) -- String format specifiers
+	vim.api.nvim_set_hl(0, "@lsp.typemod.type", { fg = colors.func }) -- Types (blue)
+    vim.api.nvim_set_hl(0, "@lsp.typemod.type.defaultLibrary", { fg = colors.keyword }) -- Default library types
 
 	vim.api.nvim_set_hl(0, "LspReferenceText", { bg = colors.lsp_reference_text, underline = false }) -- Gray background for text references
 

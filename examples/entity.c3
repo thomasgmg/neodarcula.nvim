@@ -1,32 +1,14 @@
-#include <stdio.h>
+module foo;
+import libc;
 
-// Component-based entity
-struct Position {
-    float x, y;
-}
+// C function from ESP C SDK for demo purposes
+extern fn void esp_flash_get_size(void* arg, uint* size) @extern("esp_flash_get_size");
 
-struct Entity {
-    Position pos;
-    int id;
-}
+fn void app_main() @export @extern("app_main")
+{
+    libc::printf("Hello, World!\n");
 
-fn void move(Entity* e, float dx, float dy) {
-    e->pos.x += dx;
-    e->pos.y += dy;
-    printf("Moved to (%f, %f)\n", e->pos.x, e->pos.y);
-}
-
-fn Entity create_entity(int id, float x, float y) {
-    Entity e = { .pos = {x, y}, .id = id };
-    if (id < 0) {
-        fprintf(stderr, "Invalid ID: %d\n", id);
-        exit(1);
-    }
-    return e;
-}
-
-fn int main() {
-    Entity entity = create_entity(1, 0.0, 0.0);
-    move(&entity, 5.0, 3.0);
-    return 0;
+    uint size;
+    esp_flash_get_size(null, &size);
+    libc::printf("Flash size: %d MB\n", size/1024/1024);
 }
