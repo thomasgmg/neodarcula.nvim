@@ -5,8 +5,8 @@ A discrete color theme based on Intellij's default dark theme, with support for 
 ## Examples
 
 - [Jai](#jai)
+- [Go](#go)
 - [Java](#java)
-- [Dart](#dart)
 - [C++](#c++)
 - [Rust](#rust)
 - [Odin](#odin)
@@ -16,11 +16,11 @@ A discrete color theme based on Intellij's default dark theme, with support for 
 ### Jai
 <img src="https://github.com/user-attachments/assets/041ad0b3-3ea1-4713-a2e4-31b09bdc9cec" alt="Jai Image" width="600"/>
 
+### Go
+<img src="https://github.com/user-attachments/assets/31714e1e-1b62-4307-8a92-5d0ce9a3bd29" alt="Golang Image" width="600"/>
+
 ### Java
 <img src="https://github.com/user-attachments/assets/823dcd32-7011-4cb6-ab6d-13a5d4b9e36e" alt="Java Image" width="600"/>
-
-### Dart
-<img src="https://github.com/user-attachments/assets/389ba607-c141-4202-ae67-66c4916492d4" alt="Dart Image" width="600"/>
 
 ### C++
 <img src="https://github.com/user-attachments/assets/fe2230ea-3159-4fed-a9fb-74b624ce6c6a" alt="C++ Image" width="600"/>
@@ -34,8 +34,8 @@ A discrete color theme based on Intellij's default dark theme, with support for 
 ### Zig
 <img src="https://github.com/user-attachments/assets/4f391f9f-5356-4571-be6c-d5dc052eeae2" alt="Zig Image" width="600"/>
 
-### C3
-I couldn't get highlighting to work on C3. If someone knows how to configure neovim for C3, please let me know.
+### C3 (tree-sitter only, no LSP)
+<img src="https://github.com/user-attachments/assets/c715473e-6ef5-4303-b80c-bd46fd4e0086" alt="C3 Image" width="600"/>
 
 ---
 
