@@ -5,8 +5,8 @@ A discrete color theme based on Intellij's default dark theme, with support for 
 ## Examples
 
 - [Jai](#jai)
+- [Go](#go)
 - [Java](#java)
-- [Dart](#dart)
 - [C++](#c++)
 - [Rust](#rust)
 - [Odin](#odin)
