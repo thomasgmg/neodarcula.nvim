@@ -10,7 +10,7 @@ M.colors = {
 	number = "#6897BB", -- Numbers
 	keyword = "#CC7832", -- Keywords (e.g., public, class, implements, enum)
 	comment = "#808080", -- Comments
-	constant = "#a737af", -- Constants
+	constant = "#A737AF", -- Constants
 	type = "#CC7832", -- Types (used sparingly, not for enum/class names)
 	func = "#6897BB", -- Functions/Methods/Constructors declaration (blue)
 	operator = "#A9B7C6", -- Operators (matches foreground)
@@ -18,9 +18,9 @@ M.colors = {
 	warning = "#A9A557", -- Warnings
 	info = "#606060", -- Info
 	hint = "#606060", -- Hints (same as info in Darcula)
-	gray = "#606366", -- UI elements like LineNr
-	annotation = "#5ab8ff", -- Annotations (e.g., @Component)
-	variable = "#a737af", -- Class/instance/static variables (pinkish-purple)
+	gray = "#00C8FF", -- UI elements like LineNr
+	annotation = "#5AB8FF", -- Annotations (e.g., @Component)
+	variable = "#A737AF", -- Class/instance/static variables (pinkish-purple)
 	search_bg = "#22535E", -- Other matches
 	inc_search_bg = "#00006B", -- During active search
 	cur_search_bg = "#00006B", -- Current match after search
@@ -28,9 +28,9 @@ M.colors = {
 	lsp_reference_text = "#424446", -- Selection background
 	eyeliner_bg = "#000000", -- eyeliner.nvim background
 	eyeliner_fg = "#FFFFFF", -- eyeliner.nvim background
-	float_border = "#5ab8ff",
+	float_border = "#5AB8FF",
 	title = "#FFFFFF",
-	special = "#5ab8ff", -- xml tags, tree-sitter
+	special = "#00C8FF", -- xml tags, tree-sitter
 }
 
 -- Default configuration
@@ -162,6 +162,12 @@ function M.load()
 
 	vim.api.nvim_set_hl(0, "FloatBorder", { fg = colors.float_border, bg = normal_bg })
 	vim.api.nvim_set_hl(0, "Title", { fg = colors.title, bg = normal_bg })
+
+	-- Set highlight groups for tabline
+	vim.api.nvim_set_hl(0, "BufferLineBufferSelected", { fg = "#0044FF", bg = colors.current_line, bold = true }) -- Active buffer
+	vim.api.nvim_set_hl(0, "BufferLineBufferVisible", { fg = "#0044FF", bg = colors.bg }) -- Visible but inactive
+	vim.api.nvim_set_hl(0, "BufferLineBuffer", { fg = "#0044FF", bg = colors.bg }) -- Inactive buffers
+	vim.api.nvim_set_hl(0, "BufferLineIndicatorSelected", { fg = "#0044FF", bg = colors.current_line })
 
 	-- Telescope integration
 	vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "FloatBorder" })
