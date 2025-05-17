@@ -2,7 +2,7 @@ local M = {}
 
 M.colors = {
 	fg = "#A9B7C6", -- General text
-	bg_inactive = "#000000", -- Inactive window background
+	bg_inactive = "#000215", -- Inactive window background
 	bg = "#000215",
 	selection = "#214283", -- Selection background (more blue)
 	current_line = "#000426", -- Current line highlight
@@ -18,7 +18,7 @@ M.colors = {
 	warning = "#A9A557", -- Warnings
 	info = "#606060", -- Info
 	hint = "#606060", -- Hints (same as info in Darcula)
-	gray = "#00C8FF", -- UI elements like LineNr
+	gray = "#808080", -- UI elements like LineNr
 	annotation = "#5AB8FF", -- Annotations (e.g., @Component)
 	variable = "#A737AF", -- Class/instance/static variables (pinkish-purple)
 	search_bg = "#22535E", -- Other matches
